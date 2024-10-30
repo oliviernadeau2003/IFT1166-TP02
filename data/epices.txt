@@ -1,0 +1,20 @@
+1;Cumin;Graines;2.5;100.0;Épices;1;2
+2;Safran;Poudre;15.0;50.0;Épices;3
+3;Cannelle;Bâtons;4.75;75.0;Épices;4;5;6
+4;Poivre Noir;Graines;3.2;120.0;Épices;1;2
+5;Curcuma;Poudre;6.0;200.0;Épices;2;7
+6;Paprika;Poudre;3.0;150.0;Épices;7;8
+7;Anis;Graines;4.0;80.0;Épices;9;10
+8;Cardamome;Graines;10.0;60.0;Épices;3;5
+9;Gingembre;Racine;5.5;90.0;Épices;6;7;8
+10;Thym;Feuilles;1.5;130.0;Herbes;8;9
+11;Basilic;Feuilles;2.0;110.0;Herbes;10;1
+12;Oregano;Feuilles;2.2;140.0;Herbes;1;4
+13;Romarin;Feuilles;3.3;50.0;Herbes;2;3
+14;Fenouil;Graines;4.8;60.0;Épices;7;9
+15;Sésame;Graines;6.2;100.0;Condiments;6;8
+16;Piment;Poudre;2.7;70.0;Épices;5;10
+17;Menthe;Feuilles;3.0;80.0;Herbes;2;9
+18;Clous de girofle;Graines;5.3;40.0;Épices;4;8
+19;Vanille;Gousses;12.0;20.0;Épices;7;10
+20;Lavande;Fleurs;8.5;30.0;Herbes;1;6
