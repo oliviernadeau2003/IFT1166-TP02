@@ -1,1 +1,1 @@
-# IFT1166-TP02
+# IFT1166-TP02 | Programmation C++ Orienté Objets
