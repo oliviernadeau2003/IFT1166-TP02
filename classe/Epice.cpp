@@ -11,4 +11,8 @@ private:
     string type;
     double prix;
     double quantite;
+
+public:
+    Epice() : id(0), nom(""), type(""), prix(0.0), quantite(0.0) {};
+    Epice(int id, string nom, string type, double prix, double quantite) : id(id), nom(nom), type(type), prix(prix), quantite(quantite) {}
 };
