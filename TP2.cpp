@@ -1,19 +1,23 @@
-#include <stdio.h>
 #include <iostream>
-
-#include "classe/Epice.cpp"
-#include "classe/Fournisseur.cpp"
+#include "header/Epice.h"
+#include "header/Fournisseur.h" // Décommentez cette ligne pour inclure Fournisseur
 
 using namespace std;
 
 int main()
 {
-    Epice myEpice = Epice(8, "Cardamome", "Graines", 10.0, 60.0, "Épices");
-    Fournisseur myFournisseur = Fournisseur(8, "Noir", "Pierre", "pierre.noir@email.com", "7788990011");
+    // Créer une instance d'Epice
+    Epice myEpice;
 
+    // Créer une instance de Fournisseur
+    Fournisseur myFournisseur(8, "Noir", "Pierre", "pierre.noir@email.com", "7788990011");
+
+    // Ajouter le fournisseur à l'épice
+    myEpice.ajouterFournisseur(&myFournisseur);
+
+    // Afficher les informations de l'épice et de ses fournisseurs
     myEpice.afficher();
-    myFournisseur.afficher();
 
-    system("pause"); //! REMOVE LATER
+    system("Pause");
     return 0;
 }

@@ -1,0 +1,1 @@
+g++ .\TP2.cpp .\classe\Epice.cpp .\classe\Fournisseur.cpp -o TP2

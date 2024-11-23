@@ -41,6 +41,18 @@
         "xmemory": "cpp",
         "xstring": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "atomic": "cpp",
+        "clocale": "cpp",
+        "ctime": "cpp",
+        "fstream": "cpp",
+        "memory": "cpp",
+        "set": "cpp",
+        "sstream": "cpp",
+        "typeinfo": "cpp",
+        "vector": "cpp",
+        "xfacet": "cpp",
+        "xlocinfo": "cpp",
+        "xtree": "cpp"
     }
 }
