@@ -106,7 +106,7 @@ Epice *DescripteurListeEpices::getEpiceById(int id) const
     return nullptr;
 }
 
-// Récupérer une épice par son Id
+// Récupérer une épice par son Nom
 Epice *DescripteurListeEpices::getEpiceByName(string nom) const
 {
     Noeud *courant = tete;
@@ -119,6 +119,121 @@ Epice *DescripteurListeEpices::getEpiceByName(string nom) const
         courant = courant->suivant;
     }
     return nullptr;
+}
+
+// Récupérer une épice par sa catégorie
+Epice *DescripteurListeEpices::getEpiceByCategory(string categorie) const
+{
+    Noeud *courant = tete;
+    while (courant != nullptr)
+    {
+        if (courant->epice->getCategorie() == categorie)
+        {
+            return courant->epice;
+        }
+        courant = courant->suivant;
+    }
+    return nullptr;
+}
+
+// Afficher les fournisseurs d'un épice par nom
+void DescripteurListeEpices::afficherFournisseursParEpice(const string &nom) const
+{
+    Noeud *courant = tete;
+    bool epiceTrouvee = false;
+
+    while (courant != nullptr)
+    {
+        Epice *epice = courant->epice;
+
+        if (epice->getNom() == nom)
+        {
+            epiceTrouvee = true;
+            cout << "Épice trouvée : " << epice->getNom() << endl;
+
+            // Affichage des fournisseurs associés
+            cout << "Fournisseurs associés :" << endl;
+            const set<Fournisseur *> &fournisseurs = epice->getFournisseurs();
+            if (fournisseurs.empty())
+                cout << "Aucun fournisseur associé." << endl;
+            else
+                for (Fournisseur *fournisseur : fournisseurs)
+                    fournisseur->afficher();
+            break;
+        }
+
+        courant = courant->suivant;
+    }
+
+    if (!epiceTrouvee)
+        cout << "Aucune épice trouvée avec le nom : " << nom << endl;
+}
+
+// Afficher les fournisseurs d'un épice par id
+void DescripteurListeEpices::afficherFournisseursParEpice(const int id) const
+{
+    Noeud *courant = tete;
+    bool epiceTrouvee = false;
+
+    while (courant != nullptr)
+    {
+        Epice *epice = courant->epice;
+
+        if (epice->getId() == id)
+        {
+            epiceTrouvee = true;
+            cout << "Épice trouvée : " << epice->getNom() << endl;
+
+            // Affichage des fournisseurs associés
+            cout << "Fournisseurs associés :" << endl;
+            const set<Fournisseur *> &fournisseurs = epice->getFournisseurs();
+            if (fournisseurs.empty())
+            {
+                cout << "Aucun fournisseur associé." << endl;
+            }
+            else
+                for (Fournisseur *fournisseur : fournisseurs)
+                    fournisseur->afficher();
+
+            break;
+        }
+
+        courant = courant->suivant;
+    }
+
+    if (!epiceTrouvee)
+        cout << "Aucune épice trouvée avec l'ID : " << id << endl;
+}
+
+void DescripteurListeEpices::afficherEpicesParFournisseur(int id) const
+{
+    Noeud *courant = tete;
+    bool epicesTrouvees = false;
+
+    cout << "Liste des épices vendues par le fournisseur ID " << id << " :" << endl
+         << endl;
+
+    while (courant != nullptr)
+    {
+        Epice *epice = courant->epice;
+
+        // Vérifier si le fournisseur est associé à cette épice
+        const set<Fournisseur *> &fournisseurs = epice->getFournisseurs();
+        for (Fournisseur *fournisseur : fournisseurs)
+        {
+            if (fournisseur->getId() == id)
+            {
+                epice->afficher(); // Afficher les informations de l'épice
+                epicesTrouvees = true;
+                break;
+            }
+        }
+
+        courant = courant->suivant; // Passer au noeud suivant
+    }
+
+    if (!epicesTrouvees)
+        cout << "Aucune épice n'est associée au fournisseur avec l'ID : " << id << endl;
 }
 
 // Afficher les informations de la liste

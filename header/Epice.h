@@ -43,6 +43,8 @@ public:
     string getCategorie() const;
     void setCategorie(const string &categorie);
 
+    const set<Fournisseur *> getFournisseurs() const;
+
     // Ajouter un fournisseur associé
     void ajouterFournisseur(Fournisseur *fournisseur);
 

@@ -49,7 +49,15 @@ int main()
     // epice = listeEpices.getEpiceById(1);
     // epice->afficherFournisseurs();
 
-    cout << "\n";
+    // Epice *epice = listeEpices.getEpiceByCategory("Herbes");
+    // epice->afficher();
+
+    // listeEpices.afficherFournisseursParEpice("Curcuma");
+    // listeEpices.afficherFournisseursParEpice(13);
+
+    // listeEpices.afficherEpicesParFournisseur(1);
+    // listeEpices.afficherEpicesParFournisseur(11);
+
     system("Pause");
     return 0;
 }

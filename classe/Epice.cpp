@@ -31,6 +31,8 @@ void Epice::setQuantite(double quantite) { this->quantite = quantite; }
 string Epice::getCategorie() const { return this->categorie; }
 void Epice::setCategorie(const string &categorie) { this->categorie = categorie; }
 
+const set<Fournisseur *> Epice::getFournisseurs() const { return fournisseurs; }
+
 // Ajouter un fournisseur associé
 void Epice::ajouterFournisseur(Fournisseur *fournisseur)
 {
