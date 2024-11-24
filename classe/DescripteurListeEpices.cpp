@@ -62,6 +62,21 @@ void DescripteurListeEpices::supprimerEpice(Epice *e)
     }
 }
 
+// Récupérer une épice par son Id
+Epice *DescripteurListeEpices::getEpiceById(int id) const
+{
+    Noeud *courant = tete;
+    while (courant != nullptr)
+    {
+        if (courant->epice->getId() == id)
+        {
+            return courant->epice;
+        }
+        courant = courant->suivant;
+    }
+    return nullptr;
+}
+
 // Afficher les informations de la liste
 void DescripteurListeEpices::afficherListe() const
 {

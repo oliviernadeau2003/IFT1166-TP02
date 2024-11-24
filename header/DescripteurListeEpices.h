@@ -28,6 +28,7 @@ public:
     // Méthodes principales
     void ajouterEpice(Epice *epice);
     void supprimerEpice(Epice *epice);
+    Epice *getEpiceById(int id) const;
     void afficherListe() const;
     int getNbElems() const;
 };
