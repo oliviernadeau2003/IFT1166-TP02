@@ -48,4 +48,5 @@ void Epice::afficher() const
         cout << "    - ";
         fournisseur->afficher();
     }
+    cout << "\n";
 }
