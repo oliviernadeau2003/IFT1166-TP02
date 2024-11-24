@@ -62,6 +62,35 @@ void DescripteurListeEpices::supprimerEpice(Epice *e)
     }
 }
 
+// Supprimer une épice de la liste par Id
+void DescripteurListeEpices::supprimerEpice(int id)
+{
+    Epice *e = this->getEpiceById(id);
+
+    Noeud *courant = tete;
+    while (courant != nullptr)
+    {
+        if (courant->epice == e) // Trouvé
+        {
+            if (courant->precedent)
+                courant->precedent->suivant = courant->suivant;
+            else
+                tete = courant->suivant;
+
+            if (courant->suivant)
+                courant->suivant->precedent = courant->precedent;
+            else
+                queue = courant->precedent;
+
+            delete courant->epice; // Libère la mémoire de l'épice
+            delete courant;        // Libère le noeud
+            nbElems--;
+            return;
+        }
+        courant = courant->suivant;
+    }
+}
+
 // Récupérer une épice par son Id
 Epice *DescripteurListeEpices::getEpiceById(int id) const
 {
@@ -69,6 +98,21 @@ Epice *DescripteurListeEpices::getEpiceById(int id) const
     while (courant != nullptr)
     {
         if (courant->epice->getId() == id)
+        {
+            return courant->epice;
+        }
+        courant = courant->suivant;
+    }
+    return nullptr;
+}
+
+// Récupérer une épice par son Id
+Epice *DescripteurListeEpices::getEpiceByName(string nom) const
+{
+    Noeud *courant = tete;
+    while (courant != nullptr)
+    {
+        if (courant->epice->getNom() == nom)
         {
             return courant->epice;
         }
@@ -93,4 +137,22 @@ void DescripteurListeEpices::afficherListe() const
 int DescripteurListeEpices::getNbElems() const
 {
     return nbElems;
+}
+
+int DescripteurListeEpices::getProchainIdDisponible() const
+{
+    int maxId = 0;
+
+    Noeud *courant = tete;
+    while (courant != nullptr)
+    {
+        int idEpice = courant->epice->getId();
+        if (idEpice > maxId)
+        {
+            maxId = idEpice;
+        }
+        courant = courant->suivant;
+    }
+
+    return maxId + 1; // Le prochain ID disponible est le plus grand ID + 1
 }

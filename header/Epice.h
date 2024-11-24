@@ -46,8 +46,15 @@ public:
     // Ajouter un fournisseur associé
     void ajouterFournisseur(Fournisseur *fournisseur);
 
+    // Supprimer un fournisseur par Id
+    void supprimerFournisseur(Fournisseur *fournisseur);
+
+    // Supprimer un fournisseur par Id
+    void supprimerFournisseur(int id);
+
     // Afficher les informations de l'épice et ses fournisseurs
     void afficher() const;
+    void afficherFournisseurs() const;
 };
 
 #endif // EPICE_H

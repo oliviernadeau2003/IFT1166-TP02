@@ -63,6 +63,36 @@ void DescripteurListeFournisseurs::supprimerFournisseur(Fournisseur *f)
     cout << "Fournisseur non trouvé dans la liste." << endl;
 }
 
+// Supprimer un fournisseur de la liste par Id
+void DescripteurListeFournisseurs::supprimerFournisseur(int id)
+{
+    Fournisseur *f = this->getFournisseurById(id);
+
+    Noeud *courant = tete;
+    while (courant != nullptr)
+    {
+        if (courant->fournisseur == f) // Trouvé
+        {
+            if (courant->precedent)
+                courant->precedent->suivant = courant->suivant;
+            else
+                tete = courant->suivant;
+
+            if (courant->suivant)
+                courant->suivant->precedent = courant->precedent;
+            else
+                queue = courant->precedent;
+
+            delete courant->fournisseur; // Libère la mémoire du fournisseur
+            delete courant;              // Libère le noeud
+            nbElems--;
+            return;
+        }
+        courant = courant->suivant;
+    }
+    cout << "Fournisseur non trouvé dans la liste." << endl;
+}
+
 // Récupérer un fournisseur par son Id
 Fournisseur *DescripteurListeFournisseurs::getFournisseurById(int id) const
 {
@@ -99,4 +129,22 @@ void DescripteurListeFournisseurs::afficherListe() const
 int DescripteurListeFournisseurs::getNbElems() const
 {
     return nbElems;
+}
+
+int DescripteurListeFournisseurs::getProchainIdDisponible() const
+{
+    int maxId = 0;
+
+    Noeud *courant = tete;
+    while (courant != nullptr)
+    {
+        int idEpice = courant->fournisseur->getId();
+        if (idEpice > maxId)
+        {
+            maxId = idEpice;
+        }
+        courant = courant->suivant;
+    }
+
+    return maxId + 1; // Le prochain ID disponible est le plus grand ID + 1
 }

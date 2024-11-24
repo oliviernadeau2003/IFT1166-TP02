@@ -13,16 +13,41 @@ int main()
     const string PATHFICHIEREPICE = "./data/epices.txt";
     const string PATHFICHIERFOURNISSEUR = "./data/fournisseurs.txt";
 
-    // Création de la liste
+    // Initialisation de la liste
     DescripteurListeEpices listeEpices;
     DescripteurListeFournisseurs listeFournisseurs;
 
     Utils::chargerFichierFournisseur(PATHFICHIERFOURNISSEUR, listeFournisseurs);
-    listeFournisseurs.afficherListe();
 
-    cout << "\n";
     Utils::chargerFichierEpices(PATHFICHIEREPICE, listeEpices, listeFournisseurs);
-    listeEpices.afficherListe();
+
+    // cout << "\n";
+    // listeFournisseurs.afficherListe();
+    // listeEpices.afficherListe();
+
+    // Epice *newEpice = new Epice(listeEpices.getProchainIdDisponible(), "Cumin2", "Graines", 6.8, 200.0, "Épices");
+    // listeEpices.ajouterEpice(newEpice);
+
+    // Epice *epice = listeEpices.getEpiceByName("Romarin");
+    // epice->afficher();
+
+    // 5;Ivanov;Dmitry;dmitry.ivanov@email.com;3344556677
+    // Fournisseur *newFournisseur = new Fournisseur(listeFournisseurs.getProchainIdDisponible(), "Ivanov33", "Dmitry", "dmitry.ivanov@email.com", "3344556677");
+    // listeFournisseurs.ajouterFournisseur(newFournisseur);
+
+    // Fournisseur *fournisseur = listeFournisseurs.getFournisseurById(4);
+    // fournisseur->afficher();
+
+    // fournisseur = listeFournisseurs.getFournisseurById(11);
+    // fournisseur->afficher();
+
+    // Epice *epice = listeEpices.getEpiceByName("Romarin");
+    // epice->supprimerFournisseur(2);
+
+    // epice->afficher();
+
+    // epice = listeEpices.getEpiceById(1);
+    // epice->afficherFournisseurs();
 
     cout << "\n";
     system("Pause");

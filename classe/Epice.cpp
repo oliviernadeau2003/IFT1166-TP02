@@ -37,16 +37,38 @@ void Epice::ajouterFournisseur(Fournisseur *fournisseur)
     fournisseurs.insert(fournisseur);
 }
 
+// Supprimer fournisseur par pointeur
+void Epice::supprimerFournisseur(Fournisseur *fournisseur)
+{
+    fournisseurs.erase(fournisseur);
+}
+
+// Supprimer fournisseur par Id
+void Epice::supprimerFournisseur(int id)
+{
+    for (Fournisseur *fournisseur : fournisseurs)
+        if (fournisseur->getId() == id)
+            fournisseurs.erase(fournisseur);
+}
+
 // Afficher les informations de l'épice et ses fournisseurs
 void Epice::afficher() const
 {
     cout << "ID: " << this->id << ", Nom: " << this->nom << ", Type: " << this->type
          << ", Prix: " << this->prix << ", Quantité: " << this->quantite << ", Catégorie: " << this->categorie << "\n";
-    cout << "  Fournisseurs associés :\n";
-    for (auto fournisseur : fournisseurs)
-    {
-        cout << "    - ";
-        fournisseur->afficher();
-    }
+    afficherFournisseurs();
     cout << "\n";
+}
+
+void Epice::afficherFournisseurs() const
+{
+    cout << "  Fournisseurs associés :\n";
+    if (fournisseurs.size() > 0)
+        for (Fournisseur *fournisseur : fournisseurs)
+        {
+            cout << "    - ";
+            fournisseur->afficher();
+        }
+    else
+        cout << "    Aucun fournisseur";
 }
