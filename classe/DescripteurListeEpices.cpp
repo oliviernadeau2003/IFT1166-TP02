@@ -66,6 +66,7 @@ void DescripteurListeEpices::supprimerEpice(Epice *e)
 void DescripteurListeEpices::afficherListe() const
 {
     Noeud *courant = tete;
+    cout << "Liste des épices (" << nbElems << " éléments) :" << endl;
     while (courant != nullptr)
     {
         courant->epice->afficher(); // Appelle la méthode afficher() d'Epice

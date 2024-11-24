@@ -63,6 +63,21 @@ void DescripteurListeFournisseurs::supprimerFournisseur(Fournisseur *f)
     cout << "Fournisseur non trouvé dans la liste." << endl;
 }
 
+// Récupérer un fournisseur par son Id
+Fournisseur *DescripteurListeFournisseurs::getFournisseurById(int id) const
+{
+    Noeud *courant = tete;
+    while (courant != nullptr)
+    {
+        if (courant->fournisseur->getId() == id)
+        {
+            return courant->fournisseur;
+        }
+        courant = courant->suivant;
+    }
+    return nullptr;
+}
+
 // Afficher les informations de la liste
 void DescripteurListeFournisseurs::afficherListe() const
 {

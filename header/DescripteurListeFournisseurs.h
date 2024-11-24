@@ -28,6 +28,7 @@ public:
     // Méthodes principales
     void ajouterFournisseur(Fournisseur *fournisseur);
     void supprimerFournisseur(Fournisseur *fournisseur);
+    Fournisseur *getFournisseurById(int id) const;
     void afficherListe() const;
     int getNbElems() const;
 };
