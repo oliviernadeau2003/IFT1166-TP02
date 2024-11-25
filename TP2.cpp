@@ -10,6 +10,7 @@ using namespace std;
 
 int main()
 {
+    system("chcp 65001 > NUL"); // Set l'encodeur a UTF-8 pour lire et écrire des charactère spéciaux (... > NUL permet de 'suprimer' l'output")
     const string PATHFICHIEREPICE = "./data/epices.txt";
     const string PATHFICHIERFOURNISSEUR = "./data/fournisseurs.txt";
 
@@ -18,46 +19,18 @@ int main()
     DescripteurListeFournisseurs listeFournisseurs;
 
     Utils::chargerFichierFournisseur(PATHFICHIERFOURNISSEUR, listeFournisseurs);
-
     Utils::chargerFichierEpices(PATHFICHIEREPICE, listeEpices, listeFournisseurs);
 
-    // cout << "\n";
-    // listeFournisseurs.afficherListe();
-    // listeEpices.afficherListe();
+    cout << "Données chargées avec succès.\n";
+    listeEpices.afficherListe();
+    listeFournisseurs.afficherListe();
 
-    // Epice *newEpice = new Epice(listeEpices.getProchainIdDisponible(), "Cumin2", "Graines", 6.8, 200.0, "Épices");
-    // listeEpices.ajouterEpice(newEpice);
-
-    // Epice *epice = listeEpices.getEpiceByName("Romarin");
-    // epice->afficher();
-
-    // 5;Ivanov;Dmitry;dmitry.ivanov@email.com;3344556677
-    // Fournisseur *newFournisseur = new Fournisseur(listeFournisseurs.getProchainIdDisponible(), "Ivanov33", "Dmitry", "dmitry.ivanov@email.com", "3344556677");
-    // listeFournisseurs.ajouterFournisseur(newFournisseur);
-
-    // Fournisseur *fournisseur = listeFournisseurs.getFournisseurById(4);
-    // fournisseur->afficher();
-
-    // fournisseur = listeFournisseurs.getFournisseurById(11);
-    // fournisseur->afficher();
-
-    // Epice *epice = listeEpices.getEpiceByName("Romarin");
-    // epice->supprimerFournisseur(2);
-
-    // epice->afficher();
-
-    // epice = listeEpices.getEpiceById(1);
-    // epice->afficherFournisseurs();
-
-    // Epice *epice = listeEpices.getEpiceByCategory("Herbes");
-    // epice->afficher();
-
-    // listeEpices.afficherFournisseursParEpice("Curcuma");
-    // listeEpices.afficherFournisseursParEpice(13);
-
-    // listeEpices.afficherEpicesParFournisseur(1);
-    // listeEpices.afficherEpicesParFournisseur(11);
-
+    // ---
+    // ---
+    // ---
+    // ---
+    // ---
+    cout << "\n";
     system("Pause");
     return 0;
 }
