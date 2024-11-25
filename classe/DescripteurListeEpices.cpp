@@ -56,6 +56,7 @@ void DescripteurListeEpices::supprimerEpice(Epice *e)
             delete courant->epice; // Libère la mémoire de l'épice
             delete courant;        // Libère le noeud
             nbElems--;
+            cout << "Épice " << e->getNom() << " suprimer avec succès.\n";
             return;
         }
         courant = courant->suivant;
@@ -85,6 +86,7 @@ void DescripteurListeEpices::supprimerEpice(int id)
             delete courant->epice; // Libère la mémoire de l'épice
             delete courant;        // Libère le noeud
             nbElems--;
+            cout << "Épice " << id << " suprimer avec succès.\n";
             return;
         }
         courant = courant->suivant;
@@ -103,6 +105,7 @@ Epice *DescripteurListeEpices::getEpiceById(int id) const
         }
         courant = courant->suivant;
     }
+    cout << "Erreur : Aucune épice trouvée." << endl;
     return nullptr;
 }
 
@@ -118,6 +121,7 @@ Epice *DescripteurListeEpices::getEpiceByName(string nom) const
         }
         courant = courant->suivant;
     }
+    cout << "Erreur : Aucune épice trouvée." << endl;
     return nullptr;
 }
 
@@ -133,6 +137,7 @@ Epice *DescripteurListeEpices::getEpiceByCategory(string categorie) const
         }
         courant = courant->suivant;
     }
+    cout << "Erreur : Aucune épice trouvée." << endl;
     return nullptr;
 }
 

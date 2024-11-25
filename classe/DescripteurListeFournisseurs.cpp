@@ -105,6 +105,7 @@ Fournisseur *DescripteurListeFournisseurs::getFournisseurById(int id) const
         }
         courant = courant->suivant;
     }
+    cout << "Fournisseur non trouvé dans la liste." << endl;
     return nullptr;
 }
 

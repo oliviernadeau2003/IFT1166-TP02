@@ -31,7 +31,7 @@ public:
     void supprimerEpice(int id);
     Epice *getEpiceById(int id) const;
     Epice *getEpiceByName(string nom) const;
-    Epice *getEpiceByCategory(string nom) const;
+    Epice *getEpiceByCategory(string categorie) const;
     void afficherFournisseursParEpice(const string &nom) const;
     void afficherFournisseursParEpice(const int id) const;
     void afficherEpicesParFournisseur(int id) const;

@@ -42,7 +42,13 @@ void Epice::ajouterFournisseur(Fournisseur *fournisseur)
 // Supprimer fournisseur par pointeur
 void Epice::supprimerFournisseur(Fournisseur *fournisseur)
 {
-    fournisseurs.erase(fournisseur);
+    if (fournisseur != nullptr)
+    {
+        fournisseurs.erase(fournisseur);
+        cout << "Fournisseur Id " << fournisseur->getId() << " à été retié avec succès.\n";
+        return;
+    }
+    cout << "Le fournisseur n'existe pas.\n";
 }
 
 // Supprimer fournisseur par Id
@@ -50,7 +56,12 @@ void Epice::supprimerFournisseur(int id)
 {
     for (Fournisseur *fournisseur : fournisseurs)
         if (fournisseur->getId() == id)
+        {
             fournisseurs.erase(fournisseur);
+            cout << "Fournisseur Id " << id << " à été retié avec succès.\n";
+            return;
+        }
+    cout << "Fournisseur Id " << id << " ne fait pas parti des fournisseur.\n";
 }
 
 // Afficher les informations de l'épice et ses fournisseurs
@@ -64,6 +75,7 @@ void Epice::afficher() const
 
 void Epice::afficherFournisseurs() const
 {
+    cout << "Fournisseur de l'épice : " << this->getId() << " - " << this->getNom() << endl;
     cout << "  Fournisseurs associés :\n";
     if (fournisseurs.size() > 0)
         for (Fournisseur *fournisseur : fournisseurs)
